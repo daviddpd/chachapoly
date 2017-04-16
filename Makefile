@@ -1,14 +1,14 @@
 CC = cc
 #CC = gcc48
 CFLAGS  = -g  -O0 -Wall 
-INCLUDES=-I./include
-LDFLAGS=
+INCLUDES=-I./include -I/usr/local/include
+LDFLAGS=-L/usr/local/lib -lsodium
 
-LOCAL_LIB_SRC+=src/chacha.c src/poly1305.c src/chachapoly.c 
+LOCAL_LIB_SRC+=src/chacha.c src/poly1305.c src/chachapoly.c src/curve25519-donna.c
 
 LOCAL_LIB_OBJ=$(LOCAL_LIB_SRC:.c=.o)
 
-BIN_SRC=bin/chachapoly-test.c
+BIN_SRC=bin/chachapoly-test.c bin/crypto-usage-validate.c
 BIN_OBJ=$(BIN_SRC:.c=.o)
 
 BIN_EXEC=$(BIN_SRC:.c=)
