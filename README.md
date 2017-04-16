@@ -1,3 +1,10 @@
+# dpd's RFC 7539 chacha20-poly1305 AEAD 
+
+Reference C99 implementation, reorganized to suit my style and integration into other projects. 
+
+Fork'ed from  Grigori Goronzy (grigorig), under MIT and Public Domain licensing. 
+
+
 # ChaChaPoly
 
 This is an RFC 7539 compliant ChaCha20-Poly1305 AEAD implementation. The underlying ChaCha20 implementation used is the original implementation from D. J. Bernstein with changes to the nonce/counter split as required by RFC7539. The Poly1305 implementation is poly1305-donna.
