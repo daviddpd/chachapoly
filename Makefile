@@ -1,14 +1,14 @@
 CC = cc
 #CC = gcc48
 CFLAGS  = -g  -O0 -Wall 
-INCLUDES=-I.
+INCLUDES=-I./include
 LDFLAGS=
 
-LOCAL_LIB_SRC+=chacha.c poly1305.c chachapoly.c 
+LOCAL_LIB_SRC+=src/chacha.c src/poly1305.c src/chachapoly.c 
 
 LOCAL_LIB_OBJ=$(LOCAL_LIB_SRC:.c=.o)
 
-BIN_SRC=chachapoly-test.c
+BIN_SRC=bin/chachapoly-test.c
 BIN_OBJ=$(BIN_SRC:.c=.o)
 
 BIN_EXEC=$(BIN_SRC:.c=)
