@@ -194,8 +194,8 @@ int main(int argc, char**argv)
 
 	printf ( " ===================> chacha-poly_crypt IETF C99 <================================ \n " );
     struct chachapoly_ctx ctx;
-	unsigned char additional_data[3] = { 'D', 'P', 'D'};
-	unsigned long long additional_data_length = 3;
+	unsigned char additional_data[32] = { 'D', 'P', 'D', 0,0,0,0,0,0,0,0,0,0,0,0,0, 'D', 'P', 'D', 0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	unsigned long long additional_data_length = 32;
 
     chachapoly_init(&ctx, &shared, 256);
     chachapoly_crypt(&ctx, &nonce, &additional_data, additional_data_length, _lyrics, L, data, data+L, 16, 1);
@@ -275,6 +275,9 @@ int main(int argc, char**argv)
 //    chachapoly_crypt(&ctx, nonce,       ad,               12,                     pt,    114, ct,   tag,    16, 1);
 //    chachapoly_crypt(&ctx, nonce,       ad,               12,                     ct,    114, pt,   tag,    16, 0);
 
+	printf ( " === encrypted text ===================================================================== \n " );
+   	hexprint( data, L+16);        	
+	print_bin2hex(data, L+16);
 
     chachapoly_init(&ctx, &shared2, 256);
 	if ( chachapoly_crypt(&ctx, &nonce, 
